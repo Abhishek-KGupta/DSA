@@ -14,8 +14,18 @@ double taylor1(int x,int p)//p=no. of terms
     }
     return 1;
 }
+double taylor2(int x,int p)
+{
+    static double s=1;
+    if(p>0)
+    {
+        s=1+x*s/p;
+        return taylor2(x,p-1);
+    }
+    return s;
+}
 int main()
 {
-    cout<<taylor1(1,10);
+    cout<<taylor2(4,10);
     return 0;
 }
