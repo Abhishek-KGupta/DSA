@@ -30,6 +30,5 @@ public:
         }
         return nums;
 
-        return nums;
     }
 };
