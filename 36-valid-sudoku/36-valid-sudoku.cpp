@@ -14,9 +14,9 @@ public:
                     continue;
                 int n=board[r][c]-'0';
                 int b=(r/3)*3+(c/3);
-                if(row[n][r] or col[c][n] or box[b][n])
+                if(row[r][n] or col[c][n] or box[b][n])
                     return false;
-                row[n][r]=col[c][n]=box[b][n]=true;
+                row[r][n]=col[c][n]=box[b][n]=true;
             }
         }
         return true;
