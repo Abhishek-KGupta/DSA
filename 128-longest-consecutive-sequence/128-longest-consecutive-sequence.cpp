@@ -13,8 +13,8 @@ public:
                 curr=0;
                 while(s.find(nums[i]+curr)!=s.end())
                     curr++;
-                 longest=max(longest,curr);
             }
+            longest=max(longest,curr);
         }
         return longest;
     }
