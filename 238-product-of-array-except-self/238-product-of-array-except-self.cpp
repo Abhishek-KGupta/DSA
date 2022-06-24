@@ -24,15 +24,6 @@ public:
                 post[nums.size()-1-i]=post[nums.size()-i]*nums[nums.size()-1-i ];
             }
         }
-        // for(auto x:pre)
-        //     cout<<x<<" ";
-        // cout<<endl;
-        // for(auto y:post)
-        //     cout<<y<<" ";
-        // cout<<endl;
-        // vector<int> m(nums.size(),0);
-        // if(z>1)
-        //     return m;
         
         for(int i=0;i<nums.size();i++)
         {
