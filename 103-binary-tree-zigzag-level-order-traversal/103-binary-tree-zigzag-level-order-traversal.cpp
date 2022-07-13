@@ -16,35 +16,27 @@ public:
         if(root==NULL)
             return {};
         vector<vector<int>> ans;
-        stack<int>s;
         queue<TreeNode*> q;
         bool rev=false;
         q.push(root);
         while(!q.empty())
         {
-            vector<int> temp;
             int count = q.size();
+            vector<int> temp(count);
             for(int i=0;i<count;i++)
             {
                 TreeNode* curr= q.front();
                 q.pop();
                 if(rev)
-                    s.push(curr->val);
+                    temp[count-i-1]=curr->val;
                 else
-                    temp.push_back(curr->val);
+                    temp[i]=curr->val;
                 if(curr->left)
                     q.push(curr->left);
                 if(curr->right)
                     q.push(curr->right);
             }
-            if(rev)
-            {
-                while(!s.empty())
-                {
-                    temp.push_back(s.top());
-                    s.pop();
-                }
-            }
+
             rev=!rev;
             ans.push_back(temp);
         }
