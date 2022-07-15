@@ -3,6 +3,7 @@ public:
     vector<vector<int>> threeSum(vector<int>& nums) 
     {
         int n=nums.size();
+        
         if(n<3)
             return {};
         
@@ -10,9 +11,13 @@ public:
         if(nums[0]>0)
             return {};
         
+        unordered_map<int, int> mp;
         vector<vector<int>> ans;
         
         for(int i=0;i<n;i++)
+            mp[nums[i]]=i;
+        
+        for(int i=0;i<n-2;i++)
         {
             if(nums[i]>0)
                 break;
@@ -20,28 +25,14 @@ public:
             if(i>0 and nums[i]==nums[i-1])
                 continue;
             
-            int low=i+1, high=n-1, sum=0;
-            while(low<high)
+            for(int j=i+1;j<n-1;j++)
             {
-                sum=nums[low]+nums[high]+nums[i];
-                if(sum>0)
-                    high--;
+                if(j>i+1 and nums[j]==nums[j-1])
+                    continue;
                 
-                else if(sum<0)
-                    low++;
-                
-                else
-                {
-                    ans.push_back({nums[i], nums[high], nums[low]});
-                    
-                    int last_high=nums[high];
-                    while(last_high==nums[high] and low<high)
-                        high--;
-                    
-                    int last_low=nums[low];
-                    while(last_low==nums[low] and low<high)
-                        low++;
-                }
+                int sum=-(nums[i]+nums[j]);
+                if(mp.find(sum)!=mp.end() and mp[sum]>j)
+                    ans.push_back({nums[i], nums[j], sum});
             }
         }
         return ans;
