@@ -15,7 +15,7 @@ public:
     {
         if(Left==NULL and Right==NULL)
             return true;
-        else if(Left==NULL or Right==NULL)
+        if(Left==NULL or Right==NULL)
             return false;
         if(Left->val != Right->val)
             return false;
