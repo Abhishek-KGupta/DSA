@@ -17,13 +17,15 @@ public:
         }
         else
         {
-            string x=comb;
-            x+=tolower(c);
-            permute(res, x, s, i+1);
-            
-            string y=comb;
-            y+=toupper(c);
-            permute(res, y, s, i+1);
+            // string x=comb;
+            comb+=tolower(c);
+            permute(res, comb, s, i+1);
+            comb.pop_back();
+                
+            // string y=comb;
+            comb+=toupper(c);
+            permute(res, comb, s, i+1);
+            comb.pop_back();
         }
     }
     
