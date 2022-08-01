@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    void permute(vector<string>& res, string comb, string s, int i)
+    void permute(vector<string>& res, string comb, string& s, int i)
     {
         if(i==s.size())
         {
