@@ -12,16 +12,7 @@
 class Solution 
 {
 public:
-    // void InorderTrav(TreeNode* root, vector<long long int>& res)
-    // {
-    //     if(root)
-    //     {
-    //         InorderTrav(root->left, res);
-    //         res.push_back(root->val);
-    //         InorderTrav(root->right, res);
-    //     }
-    //     return;
-    // }
+
     long int prev=LONG_MIN;
     bool isValidBST(TreeNode* root) 
     {
