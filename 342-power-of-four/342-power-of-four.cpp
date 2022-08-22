@@ -16,6 +16,6 @@ public:
             n>>=1;
             pos++;
         }
-        return(ones == 1 and one_pos&1);
+        return(ones == 1 and one_pos%2!=0);
     }
 };
