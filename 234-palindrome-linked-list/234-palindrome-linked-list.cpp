@@ -23,7 +23,7 @@ public:
             slow = tmp;
         }
         
-        if(fast)
+        if(fast != NULL)
             slow = slow -> next;
         
         while(slow)
