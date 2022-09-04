@@ -11,33 +11,35 @@
  */
 class Solution {
 public:
-    void vTrav(TreeNode *root, vector<vector<int>>& ans)
+    void vTrav(TreeNode* root, vector<vector<int>>& ans)
     {
-        map<int, map <int, multiset<int>>> mp;
-        queue<pair<TreeNode*,pair<int, int>>> q;
+        map<int, map<int, multiset<int>>> mp;
+        queue<pair<TreeNode*, pair<int, int>>> q;
         
         q.push({root, {0, 0}});
+        
         while(!q.empty())
         {
-            auto p=q.front();    // p contains node and distance pair 
-            int dist=p.second.first;
-            int depth=p.second.second;
-            TreeNode* curr=p.first;
-            mp[dist][depth].insert(curr->val);
+            auto p = q.front();
             q.pop();
+            TreeNode* curr = p.first;
+            int dist = p.second.first;
+            int depth = p.second.second;
             
-            if(curr->left)
-                q.push({curr->left, {dist-1, depth+1}});
-            if(curr->right)
-                q.push({curr->right, {dist+1, depth+1}});
+            mp[dist][depth].insert(curr->val);
+            
+            if(curr -> left)
+                q.push({curr -> left, {dist - 1, depth + 1}});
+            if(curr -> right)
+                q.push({curr -> right, {dist + 1, depth + 1}});
         }
         
         for(auto it : mp)
         {
-            vector<int>v;     
-            for(auto at : it.second)
-                v.insert(v.end(),at.second.begin(),at.second.end());
-            ans.push_back(v);
+            vector<int> temp;
+            for(auto x : it.second)
+                temp.insert(temp.end(), x.second.begin(), x.second.end());
+            ans.push_back(temp);
         }
     }
     vector<vector<int>> verticalTraversal(TreeNode* root) 
