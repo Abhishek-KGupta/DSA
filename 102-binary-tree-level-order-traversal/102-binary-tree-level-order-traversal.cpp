@@ -16,7 +16,6 @@ public:
             return{};
         
         queue<TreeNode*> q;
-        vector<int> temp;
         vector<vector<int>> ans;
         
         q.push(root);
@@ -24,6 +23,7 @@ public:
         
         while(!q.empty())
         {
+            vector<int> temp;
             int count=q.size();
             for(int i=0;i<count;i++)
             {
@@ -39,7 +39,6 @@ public:
                 temp.push_back(curr->val);
             }
             ans.push_back(temp);
-            temp.clear();
         }
         return ans;
     }
